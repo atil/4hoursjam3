@@ -51,8 +51,10 @@ public class ExplosionForce : MonoBehaviour {
 
         if (upliftModifer != 0)
         {
-            float upliftWearoff = 1 - upliftModifier / explosionRadius;
+            float upliftWearoff = Mathf.Abs(1 - upliftModifier / explosionRadius);
             Vector3 upliftForce = hitNormal * explosionForce * upliftWearoff;
+            //Debug.Log("force: " + upliftForce + " == " + hitNormal + " == " + explosionForce + " == " + upliftWearoff);
+
             upliftForce.z = 0;
             body.AddForce(upliftForce);
         }

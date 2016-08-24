@@ -14,8 +14,8 @@ public class Body : MonoBehaviour
     {
         if (col.collider.GetComponent<Stick>() != null)
         {
-            _explosionForce.upliftModifer = col.relativeVelocity.magnitude * 2;
-            _explosionForce.hitNormal = col.contacts[0].normal;
+            _explosionForce.upliftModifer = col.relativeVelocity.magnitude * 3;
+            _explosionForce.hitNormal = (transform.position - col.collider.transform.position).normalized;
             _explosionForce.doExplosion(col.contacts[0].point);
             GetComponent<Explodable>().generateFragments();
             GetComponent<Explodable>().explode();
