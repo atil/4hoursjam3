@@ -24,7 +24,9 @@ public class ExplosionForce : MonoBehaviour {
 	private IEnumerator waitAndExplode(){
 		yield return new WaitForFixedUpdate();
 		
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,radius, ~(1 << LayerMask.NameToLayer("Ground")));
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,radius, ~(1 << LayerMask.NameToLayer("Ground")
+            | 1 << LayerMask.NameToLayer("Stick")
+            ));
      
 		foreach(Collider2D coll in colliders){
 			if(coll.GetComponent<Rigidbody2D>()&&coll.name!="hero"){
@@ -53,10 +55,11 @@ public class ExplosionForce : MonoBehaviour {
         {
             float upliftWearoff = Mathf.Abs(1 - upliftModifier / explosionRadius);
             Vector3 upliftForce = hitNormal * explosionForce * upliftWearoff;
-            //Debug.Log("force: " + upliftForce + " == " + hitNormal + " == " + explosionForce + " == " + upliftWearoff);
 
             upliftForce.z = 0;
             body.AddForce(upliftForce);
+
+            Destroy(body.gameObject, Random.Range(3f, 5f));
         }
 		
 	}

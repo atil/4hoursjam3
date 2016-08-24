@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Stick : MonoBehaviour
 {
     private Collider2D _ground;
-    private float hitForce = 50f;
+    private float hitForce = 200f;
 
     void Start()
     {

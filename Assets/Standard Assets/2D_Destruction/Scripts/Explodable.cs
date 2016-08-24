@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-
+#if UNITY_EDITOR
+//using UnityEditor;
+#endif
 [RequireComponent(typeof(Rigidbody2D))]
 public class Explodable : MonoBehaviour
 {

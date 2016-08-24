@@ -70,7 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Body.cs" />
+    <Compile Include="Assets\Scripts\BodySpawner.cs" />
     <Compile Include="Assets\Scripts\Stick.cs" />
+    <Compile Include="Assets\Scripts\Ui.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
